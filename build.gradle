@@ -1,14 +1,70 @@
 group 'com.tyb'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+allprojects {
+    version = rootProject.version
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+def javaModules() {
+    subprojects.findAll {
+        it.name.contains('infrastructure') || it.name.contains('tybweb')
+    }
+}
+
+def bootModules() {
+    subprojects.findAll {
+        it.name.contains('tybweb')
+    }
+}
+
+configure(javaModules()){
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    group 'com.tyb'
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        compile 'com.google.guava:guava:22.0'
+    }
+}
+
+ext.mysql_connector_version = '5.1.41'
+ext.druid_version = '1.0.28'
+ext.hibernate_version = '5.0.12.Final'
+
+configure(bootModules()) {
+    apply plugin: 'org.springframework.boot'
+
+    dependencies {
+        compile 'org.springframework.boot:spring-boot-starter'
+        compile 'org.springframework.boot:spring-boot-starter-web'
+        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+        compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+        compile "mysql:mysql-connector-java:$mysql_connector_version"
+        compile "com.alibaba:druid:$druid_version"
+    }
+
+    compileJava.dependsOn(processResources)
 }

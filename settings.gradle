@@ -1,2 +1,3 @@
-rootProject.name = 'simon'
 include 'tybweb'
+include 'infrastructure'
+
