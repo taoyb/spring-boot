@@ -1,6 +1,6 @@
 package com.tyb.tybsvc.dao;
 
-import com.tyb.tybsvc.entity.TybMenus;
+import com.tyb.tybsvc.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date: 18-8-31 上午10:07
  * @Desc:
  */
-public interface TybMenusDao {
+public interface CarDao extends JpaRepository<Car, String> {
 
 }

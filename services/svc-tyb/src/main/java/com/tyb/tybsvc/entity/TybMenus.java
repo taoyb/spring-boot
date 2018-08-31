@@ -11,10 +11,10 @@ import javax.persistence.Table;
  * @Date: 18-8-31 上午9:56
  * @Desc:
  */
-@Entity
+/*@Entity
 @Table(name = "flowerpoints", catalog = "vas")
 @DynamicInsert
-@DynamicUpdate
+@DynamicUpdate*/
 public class TybMenus {
 
     private Long menuId;//菜单id
