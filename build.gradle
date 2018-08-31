@@ -24,13 +24,19 @@ buildscript {
 
 def javaModules() {
     subprojects.findAll {
-        it.name.contains('infrastructure') || it.name.contains('tybweb')
+        it.name.contains('infrastructure') || it.name.contains('web-') || it.name.contains('svc-')
     }
 }
 
 def bootModules() {
     subprojects.findAll {
-        it.name.contains('tybweb')
+        it.name.contains('web-')
+    }
+}
+
+def svcModules() {
+    subprojects.findAll {
+        it.name.contains('svc-')
     }
 }
 
@@ -59,7 +65,6 @@ configure(bootModules()) {
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter'
         compile 'org.springframework.boot:spring-boot-starter-web'
-        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
         compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
         compile "mysql:mysql-connector-java:$mysql_connector_version"
@@ -67,4 +72,13 @@ configure(bootModules()) {
     }
 
     compileJava.dependsOn(processResources)
+}
+
+configure(svcModules()){
+    apply plugin: 'org.springframework.boot'
+    dependencies {
+        compile "org.hibernate:hibernate-core:$hibernate_version"
+        compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    }
 }

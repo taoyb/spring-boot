@@ -16,7 +16,6 @@ public class TestController {
 
     @RequestMapping(value = "test")
     public String test(Model model) {
-
         model.addAttribute("test", "测试");
         model.addAttribute("tyb", "陶英镖");
         return "car/index";
