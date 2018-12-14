@@ -9,6 +9,9 @@ allprojects {
     }
 }
 
+
+
+
 buildscript {
     ext {
         springBootVersion = '1.5.3.RELEASE'
@@ -24,7 +27,7 @@ buildscript {
 
 def javaModules() {
     subprojects.findAll {
-        it.name.contains('infrastructure') || it.name.contains('web-') || it.name.contains('svc-')
+        it.name.contains('infrastructure') || it.name.contains('web-') || it.name.contains('svc-') || it.name.contains('mod-')
     }
 }
 
@@ -40,7 +43,13 @@ def svcModules() {
     }
 }
 
-configure(javaModules()){
+def mdlModules() {
+    subprojects.findAll {
+        it.name.contains('mod-')
+    }
+}
+
+configure(javaModules()) {
     apply plugin: 'java'
     apply plugin: 'idea'
     sourceCompatibility = 1.8
@@ -53,6 +62,8 @@ configure(javaModules()){
     dependencies {
         compile 'com.google.guava:guava:22.0'
     }
+
+
 }
 
 ext.mysql_connector_version = '5.1.41'
@@ -74,11 +85,19 @@ configure(bootModules()) {
     compileJava.dependsOn(processResources)
 }
 
-configure(svcModules()){
+configure(svcModules()) {
+    apply plugin: 'org.springframework.boot'
+
+    bootRepackage.enabled = false
+}
+
+configure(mdlModules()) {
     apply plugin: 'org.springframework.boot'
     dependencies {
         compile "org.hibernate:hibernate-core:$hibernate_version"
         compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
         compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     }
+    bootRepackage.enabled = false
 }
+

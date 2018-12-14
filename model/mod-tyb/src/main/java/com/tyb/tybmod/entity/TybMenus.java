@@ -1,10 +1,4 @@
-package com.tyb.tybsvc.entity;
-
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
+package com.tyb.tybmod.entity;
 
 /**
  * @Auth: tyb

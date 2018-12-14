@@ -1,4 +1,4 @@
-package com.tyb.tybsvc.entity;
+package com.tyb.tybmod.entity;
 
 import com.tyb.infra.jpa.BaseEntity;
 import org.hibernate.annotations.DynamicInsert;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @Desc:
  */
 @Entity
-@Table(name = "car",catalog = "tybweb")
+@Table(name = "car", catalog = "tybweb")
 @DynamicInsert
 @DynamicUpdate
 public class Car extends BaseEntity {
