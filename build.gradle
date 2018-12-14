@@ -94,7 +94,7 @@ configure(svcModules()) {
 configure(mdlModules()) {
     apply plugin: 'org.springframework.boot'
     dependencies {
-        compile "org.hibernate:hibernate-core:$hibernate_version"
+//        compile "org.hibernate:hibernate-core:$hibernate_version"
         compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
         compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     }
