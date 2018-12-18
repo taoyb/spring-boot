@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class TestController {
     @RequestMapping(value = "test")
     public String test(Model model) {
 
-        return "car/index";
+        return "index.html";
     }
 
     @GetMapping("test1")
@@ -34,6 +35,14 @@ public class TestController {
         List<Car> list = carService.findAll();
         model.addAttribute("test", "测试");
         model.addAttribute("tyb", "陶英镖");
-        return "car/index";
+        return "backstage/login";
+    }
+
+    @PostMapping("test2")
+    public String test2(Model model) {
+        List<Car> list = carService.findAll();
+        model.addAttribute("test", "测试");
+        model.addAttribute("tyb", "陶英镖");
+        return "index";
     }
 }
