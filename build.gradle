@@ -72,11 +72,16 @@ ext.hibernate_version = '5.0.12.Final'
 
 configure(bootModules()) {
     apply plugin: 'org.springframework.boot'
+    ext['thymeleaf.version'] = '3.0.2.RELEASE'
+    ext['thymeleaf-layout-dialect.version'] = '2.1.1'
 
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter'
         compile 'org.springframework.boot:spring-boot-starter-web'
-        compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//        compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        compile("org.thymeleaf:thymeleaf:3.0.2.RELEASE")
+        compile("org.thymeleaf:thymeleaf-spring4:3.0.2.RELEASE")
+        compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.1.1")
 
         compile "mysql:mysql-connector-java:$mysql_connector_version"
         compile "com.alibaba:druid:$druid_version"
