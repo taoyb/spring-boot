@@ -1,14 +1,26 @@
+/*
 package com.tyb.tybmod.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.tyb.infra.jpa.BaseEntity;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+*/
 /**
  * Created by taoyb on 2016-12-02.
- */
-public class User implements Serializable{
+ *//*
+
+@Entity
+@Table(name = "tyb_user", catalog = "tybweb")
+@DynamicInsert
+@DynamicUpdate
+public class User extends BaseEntity {
     private Long userId;//用户id
     private String userName;//用户名
     private Long userPhone;//用户手机
@@ -110,3 +122,4 @@ public class User implements Serializable{
                 '}';
     }
 }
+*/

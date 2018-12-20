@@ -1,3 +1,4 @@
+/*
 package com.tyb.tybsvc.service.impl;
 
 import com.tyb.infra.AjaxDone;
@@ -9,11 +10,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+*/
 /**
  * @Auth: tyb
  * @Date: 18-12-13 下午2:53
  * @Desc:
- */
+ *//*
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -30,9 +33,11 @@ public class UserServiceImpl implements UserService {
         List<User> list = userDao.findByUserName(userName);
         if (list.size() > 0) {
             if (true
-                   /* && !Tools.isEmpty(model.getPassword())
+                   */
+/* && !Tools.isEmpty(model.getPassword())
                     && Md5Util.getEncryptedPwd(model.getPassword()).equals(user.getPassword())
-                    && model.getPassword().trim().equals(user.getPassword()) && model.getUserName().equals(user.getUserName())*/
+                    && model.getPassword().trim().equals(user.getPassword()) && model.getUserName().equals(user.getUserName())*//*
+
                     ) {
 //                request.getSession().setAttribute("loginUser", user);
                 return AjaxDone.successCloseRel("jbsxBox");
@@ -44,3 +49,4 @@ public class UserServiceImpl implements UserService {
         }
     }
 }
+*/

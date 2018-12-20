@@ -2,7 +2,6 @@ package com.tyb.tybweb.controller;
 
 import com.tyb.infra.AjaxDone;
 import com.tyb.tybmod.dto.LoginDto;
-import com.tyb.tybsvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +17,7 @@ public class LoginController {
 
     @Autowired
     HttpServletRequest request;
-    @Autowired
+    /*@Autowired
     private UserService userService;
 
     @PostMapping(value = "/login", produces = "application/json")
@@ -34,5 +33,5 @@ public class LoginController {
             e.printStackTrace();
             return AjaxDone.error("未知异常，请看日志");
         }
-    }
+    }*/
 }
