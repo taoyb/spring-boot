@@ -85,6 +85,8 @@ configure(bootModules()) {
 
         compile "mysql:mysql-connector-java:$mysql_connector_version"
         compile "com.alibaba:druid:$druid_version"
+
+        compile 'com.google.code.gson:gson:2.6.2'
     }
 
     compileJava.dependsOn(processResources)
