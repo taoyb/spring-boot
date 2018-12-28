@@ -2,9 +2,10 @@ package com.tyb.tybmod.prize.entity;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -13,31 +14,62 @@ import java.sql.Timestamp;
  * @Date: 18-12-24 下午2:32
  * @Desc:
  */
-//@Entity
-//@Table(name = "lotteryrecord", catalog = "prize")
-//@DynamicInsert
-//@DynamicUpdate
-public class LotteryRecord {
+@Entity
+@Table(name = "lotteryrecord", catalog = "prize")
+@DynamicInsert
+@DynamicUpdate
+public class LotteryRecord  implements Serializable {
+    @Id
+    @GenericGenerator(name="idGenerator", strategy="uuid") //这个是hibernate的注解/生成32位UUID
+    @GeneratedValue(generator="idGenerator")
+    private String id;
 
+    @Column(name = "logid")
     private int logId;
+    @Column(name = "transactionamount")
     private String transactionAmount;
+    @Column(name = "opttype")
     private int optType;
+    @Column
     private String message;
+    @Column(name = "userid")
     private String userId;
+    @Column(name = "createdate")
     private Timestamp createDate;
+    @Column(name = "accountorderid")
     private String accountOrderId;
+    @Column(name = "tradecode")
     private String tradeCode;
+    @Column(name = "trademessage")
     private String tradeMessage;
+    @Column(name = "schametype")
     private String schameType;
+    @Column(name = "showdate")
     private String showDate;
+    @Column(name = "wallettype")
     private int walletType;
+    @Column(name = "balancebefore")
     private int balanceBefore;
+    @Column(name = "balanceafter")
     private int balanceAfter;
+    @Column(name = "balanceenvelope")
     private int balanceEnvelope;
+    @Column(name = "balanceprize")
     private int balancePrize;
+    @Column(name = "balancerecharge")
     private int balanceRecharge;
+    @Column(name = "balancepoint")
     private BigDecimal balancePoint;
+    @Column
     private int balance;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public int getLogId() {
         return logId;

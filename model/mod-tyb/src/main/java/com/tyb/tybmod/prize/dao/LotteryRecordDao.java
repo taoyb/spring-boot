@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date: 18-8-31 上午10:07
  * @Desc:
  */
-public interface LotteryRecordDao/* extends JpaRepository<LotteryRecord, String>*/ {
-
+public interface LotteryRecordDao extends JpaRepository<LotteryRecord, String> {
+    LotteryRecord findFirstByOrderByCreateDateDesc();
 }

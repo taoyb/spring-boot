@@ -18,15 +18,15 @@ import javax.persistence.Table;
 //@DynamicUpdate
 public class GamePlayer {
 
-    @Column(name = "expertid")
+//    @Column(name = "expertid")
     private String expertId;
-    @Column(name = "nickname")
+//    @Column(name = "nickname")
     private String nickName;//昵称
-    @Column(name = "sevendaysprofit")
+//    @Column(name = "sevendaysprofit")
     private String sevenDaysProfit;//七日利润
-    @Column(name = "hitsituation")
+//    @Column(name = "hitsituation")
     private String hitSituation;
-    @Column(name = "fanscount")
+//    @Column(name = "fanscount")
     private String fansCount;//粉丝
 
     public String getExpertId() {
