@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Desc:
  */
 public interface LotteryRecordDao extends JpaRepository<LotteryRecord, String> {
-    LotteryRecord findFirstByOrderByCreateDateDesc();
+    LotteryRecord findFirstByOrderByCreateTimeDesc();
 }

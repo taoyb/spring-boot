@@ -38,7 +38,7 @@ public class TestController {
         JsonObject o = (JsonObject) jsonParser.parse(json);
         JsonArray jsonArray = o.get("logs").getAsJsonArray();
         List<LotteryRecord> t = new Gson().fromJson(jsonArray,new TypeToken<List<LotteryRecord>>(){}.getType());
-        t.forEach(a-> System.out.println(a.getTransactionAmount()));
+        t.forEach(a-> System.out.println(a.getActualGrossPrize()));
         model.addAttribute("secu","成功");
         return "backstage/json";
     }

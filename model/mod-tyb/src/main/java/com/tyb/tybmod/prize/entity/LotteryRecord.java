@@ -24,44 +24,49 @@ public class LotteryRecord  implements Serializable {
     @GeneratedValue(generator="idGenerator")
     private String id;
 
-    @Column(name = "logid")
-    private int logId;
-    @Column(name = "transactionamount")
-    private String transactionAmount;
-    @Column(name = "opttype")
-    private int optType;
-    @Column
-    private String message;
+    @Column(name = "schemaid")
+    private String schemaId;
     @Column(name = "userid")
     private String userId;
-    @Column(name = "createdate")
-    private Timestamp createDate;
-    @Column(name = "accountorderid")
-    private String accountOrderId;
-    @Column(name = "tradecode")
-    private String tradeCode;
-    @Column(name = "trademessage")
-    private String tradeMessage;
-    @Column(name = "schametype")
-    private String schameType;
-    @Column(name = "showdate")
-    private String showDate;
-    @Column(name = "wallettype")
-    private int walletType;
-    @Column(name = "balancebefore")
-    private int balanceBefore;
-    @Column(name = "balanceafter")
-    private int balanceAfter;
-    @Column(name = "balanceenvelope")
-    private int balanceEnvelope;
-    @Column(name = "balanceprize")
-    private int balancePrize;
-    @Column(name = "balancerecharge")
-    private int balanceRecharge;
-    @Column(name = "balancepoint")
-    private BigDecimal balancePoint;
-    @Column
-    private int balance;
+    @Column(name = "schematype")
+    private int schemaType;
+//"lotteryIcon" -> "null"
+//    "userName" -> "null"
+//    "realName" -> "null"
+    @Column(name = "paymentstatus")
+    private int paymentStatus;
+    @Column(name = "lotterytype")
+    private String lotteryType;
+    @Column(name = "lotterytypename")
+    private String lotteryTypeName;
+    @Column(name = "createtime")
+    private Timestamp createTime;
+    @Column(name = "drawseq")
+    private String drawSeq;
+    @Column(name = "gametypeid")
+    private String gameTypeId;
+    @Column(name = "times")
+    private int times;
+    @Column(name = "bets")
+    private int bets;
+    @Column(name = "price")
+    private BigDecimal price;
+    @Column(name = "failureprice")
+    private int failurePrice;
+    @Column(name = "actualgrossprize")
+    private BigDecimal actualGrossPrize;
+    @Column(name = "deservegrossprize")
+    private BigDecimal deserveGrossPrize;
+    @Column(name = "predictprize")
+    private String predictPrize;
+    @Column(name = "prizestatus")
+    private int prizeStatus;
+    @Column(name = "orderstatus")
+    private int orderStatus;
+    @Column(name = "deletestatus")
+    private int deleteStatus;
+    @Column(name = "isprintoff")
+    private int isPrintOff;
 
     public String getId() {
         return id;
@@ -71,36 +76,12 @@ public class LotteryRecord  implements Serializable {
         this.id = id;
     }
 
-    public int getLogId() {
-        return logId;
+    public String getSchemaId() {
+        return schemaId;
     }
 
-    public void setLogId(int logId) {
-        this.logId = logId;
-    }
-
-    public String getTransactionAmount() {
-        return transactionAmount;
-    }
-
-    public void setTransactionAmount(String transactionAmount) {
-        this.transactionAmount = transactionAmount;
-    }
-
-    public int getOptType() {
-        return optType;
-    }
-
-    public void setOptType(int optType) {
-        this.optType = optType;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setSchemaId(String schemaId) {
+        this.schemaId = schemaId;
     }
 
     public String getUserId() {
@@ -111,115 +92,147 @@ public class LotteryRecord  implements Serializable {
         this.userId = userId;
     }
 
-    public Timestamp getCreateDate() {
-        return createDate;
+    public int getSchemaType() {
+        return schemaType;
     }
 
-    public void setCreateDate(Timestamp createDate) {
-        this.createDate = createDate;
+    public void setSchemaType(int schemaType) {
+        this.schemaType = schemaType;
     }
 
-    public String getAccountOrderId() {
-        return accountOrderId;
+    public int getPaymentStatus() {
+        return paymentStatus;
     }
 
-    public void setAccountOrderId(String accountOrderId) {
-        this.accountOrderId = accountOrderId;
+    public void setPaymentStatus(int paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
-    public String getTradeCode() {
-        return tradeCode;
+    public String getLotteryType() {
+        return lotteryType;
     }
 
-    public void setTradeCode(String tradeCode) {
-        this.tradeCode = tradeCode;
+    public void setLotteryType(String lotteryType) {
+        this.lotteryType = lotteryType;
     }
 
-    public String getTradeMessage() {
-        return tradeMessage;
+    public String getLotteryTypeName() {
+        return lotteryTypeName;
     }
 
-    public void setTradeMessage(String tradeMessage) {
-        this.tradeMessage = tradeMessage;
+    public void setLotteryTypeName(String lotteryTypeName) {
+        this.lotteryTypeName = lotteryTypeName;
     }
 
-    public String getSchameType() {
-        return schameType;
+    public Timestamp getCreateTime() {
+        return createTime;
     }
 
-    public void setSchameType(String schameType) {
-        this.schameType = schameType;
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
-    public String getShowDate() {
-        return showDate;
+    public String getDrawSeq() {
+        return drawSeq;
     }
 
-    public void setShowDate(String showDate) {
-        this.showDate = showDate;
+    public void setDrawSeq(String drawSeq) {
+        this.drawSeq = drawSeq;
     }
 
-    public int getWalletType() {
-        return walletType;
+    public String getGameTypeId() {
+        return gameTypeId;
     }
 
-    public void setWalletType(int walletType) {
-        this.walletType = walletType;
+    public void setGameTypeId(String gameTypeId) {
+        this.gameTypeId = gameTypeId;
     }
 
-    public int getBalanceBefore() {
-        return balanceBefore;
+    public int getTimes() {
+        return times;
     }
 
-    public void setBalanceBefore(int balanceBefore) {
-        this.balanceBefore = balanceBefore;
+    public void setTimes(int times) {
+        this.times = times;
     }
 
-    public int getBalanceAfter() {
-        return balanceAfter;
+    public int getBets() {
+        return bets;
     }
 
-    public void setBalanceAfter(int balanceAfter) {
-        this.balanceAfter = balanceAfter;
+    public void setBets(int bets) {
+        this.bets = bets;
     }
 
-    public int getBalanceEnvelope() {
-        return balanceEnvelope;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setBalanceEnvelope(int balanceEnvelope) {
-        this.balanceEnvelope = balanceEnvelope;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
-    public int getBalancePrize() {
-        return balancePrize;
+    public int getFailurePrice() {
+        return failurePrice;
     }
 
-    public void setBalancePrize(int balancePrize) {
-        this.balancePrize = balancePrize;
+    public void setFailurePrice(int failurePrice) {
+        this.failurePrice = failurePrice;
     }
 
-    public int getBalanceRecharge() {
-        return balanceRecharge;
+    public BigDecimal getActualGrossPrize() {
+        return actualGrossPrize;
     }
 
-    public void setBalanceRecharge(int balanceRecharge) {
-        this.balanceRecharge = balanceRecharge;
+    public void setActualGrossPrize(BigDecimal actualGrossPrize) {
+        this.actualGrossPrize = actualGrossPrize;
     }
 
-    public BigDecimal getBalancePoint() {
-        return balancePoint;
+    public BigDecimal getDeserveGrossPrize() {
+        return deserveGrossPrize;
     }
 
-    public void setBalancePoint(BigDecimal balancePoint) {
-        this.balancePoint = balancePoint;
+    public void setDeserveGrossPrize(BigDecimal deserveGrossPrize) {
+        this.deserveGrossPrize = deserveGrossPrize;
     }
 
-    public int getBalance() {
-        return balance;
+    public String getPredictPrize() {
+        return predictPrize;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setPredictPrize(String predictPrize) {
+        this.predictPrize = predictPrize;
+    }
+
+    public int getPrizeStatus() {
+        return prizeStatus;
+    }
+
+    public void setPrizeStatus(int prizeStatus) {
+        this.prizeStatus = prizeStatus;
+    }
+
+    public int getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public int getDeleteStatus() {
+        return deleteStatus;
+    }
+
+    public void setDeleteStatus(int deleteStatus) {
+        this.deleteStatus = deleteStatus;
+    }
+
+    public int getIsPrintOff() {
+        return isPrintOff;
+    }
+
+    public void setIsPrintOff(int isPrintOff) {
+        this.isPrintOff = isPrintOff;
     }
 }

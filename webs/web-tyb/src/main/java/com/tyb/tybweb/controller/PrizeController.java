@@ -51,21 +51,24 @@ public class PrizeController {
     public String lotteryRecordSave(String json) {
         JsonParser jsonParser = new JsonParser();
         JsonObject o = (JsonObject) jsonParser.parse(json);
-        JsonArray jsonArray = o.get("logs").getAsJsonArray();
+        JsonArray jsonArray = o.get("data").getAsJsonArray();
+
         List<LotteryRecord> t = new Gson().fromJson(jsonArray, new TypeToken<List<LotteryRecord>>() {
         }.getType());
-        LotteryRecord first  = lotteryRecordDao.findFirstByOrderByCreateDateDesc();
-        t.stream().filter(t1 -> first != null && t1.getCreateDate().getTime() > first.getCreateDate().getTime()).forEach(
-                t1 -> {
-                    lotteryRecordDao.save(t1);
-                }
-        );
-        /*for (int i = 0; i < jsonArray.size(); i++) {
-            LotteryRecord t1 = new Gson().fromJson(jsonArray.get(i).getAsJsonObject(), LotteryRecord.class);
-            JsonObject sub = jsonArray.get(i).getAsJsonObject();
-            lotteryRecordDao.save(t1);
-            System.out.println(sub.get("transactionAmount"));
-        }*/
+        LotteryRecord first  = lotteryRecordDao.findFirstByOrderByCreateTimeDesc();
+        if (first != null){
+            t.stream().filter(t1 -> t1.getCreateTime().getTime() > first.getCreateTime().getTime()).forEach(
+                    t1 -> {
+                        lotteryRecordDao.save(t1);
+                    }
+            );
+        }else{
+            t.forEach(
+                    t1 -> {
+                        lotteryRecordDao.save(t1);
+                    }
+            );
+        }
         return "backstage/prize/lotteryRecordList";
     }
 
